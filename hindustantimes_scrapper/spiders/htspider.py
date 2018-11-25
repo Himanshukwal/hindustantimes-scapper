@@ -17,7 +17,8 @@ class HtSpider(scrapy.Spider):
         selector = response.xpath('//*[contains(concat( " ", @class, " " ), concat( " ", "trc_ellipsis", " " ))] | //*[contains(concat( " ", @class, " " ), concat( " ", "clearfix", " " ))]//*[contains(concat( " ", @class, " " ), concat( " ", "para-txt", " " ))]//a | //*[contains(concat( " ", @class, " " ), concat( " ", "random-heading", " " ))]//a | //*[contains(concat( " ", @class, " " ), concat( " ", "headingfive", " " ))]//a | //*[contains(concat( " ", @class, " " ), concat( " ", "headingfour", " " ))]//a | //*[contains(concat( " ", @class, " " ), concat( " ", "top-thumb-rgt", " " ))]//a | //*[contains(concat( " ", @class, " " ), concat( " ", "subhead4", " " ))]//a')
 
         #list of all the headlines
-        hlines = [i.xpath('text()').extract() for i in selector if len(i.xpath('text()').extract())!=0 ]
+        #join and lstrip for cleaning of headlines (i.e removing leading tabs,newlines and spaces)
+        hlines = [[''.join(i.xpath('text()').extract()).lstrip()] for i in selector if len(i.xpath('text()').extract())!=0 ]
 
         print(hlines)
         with open('headlines.csv','w') as csvfile:
