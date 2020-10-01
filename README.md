@@ -1,5 +1,5 @@
 # hindustantimes-scapper
-A webscrapper for scraping the news from hindustan times and exporting it into csv file.
+A webscrapper for scrapping the news from Hindustan Times and exporting it into csv file.
 
 ## Getting Started
 * Install scrapy==1.5.1
@@ -11,3 +11,4 @@ A webscrapper for scraping the news from hindustan times and exporting it into c
 ```
    
 ### You'll get headlines.csv file containing today's Hindustan times headlines.
+### All key headlines may helps you to learn better
